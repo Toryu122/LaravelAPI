@@ -3,8 +3,9 @@
 namespace App\Providers;
 
 use App\Common\GlobalVariable;
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Eloquent\Builder;
 
 /**
  * @method whereHas($relation, $constraint)
@@ -39,5 +40,6 @@ class AppServiceProvider extends ServiceProvider
                     ->with($relation, $constraint);
             }
         );
+        Schema::defaultStringLength(191);
     }
 }
